@@ -10,7 +10,7 @@ function main(){
         if(!new.target){
             throw Error('Use the "new" operator to call this Constructor method!'); // Prevents calling the constructor like a normal method.
         }
-        
+
         this.id = crypto.randomUUID()
         this.title = title;
         this.author = author;
@@ -20,7 +20,7 @@ function main(){
     }
 
     function addBookToLibrary(book){
-        if(!titleInput.value && !authorInput.value && !pagesInput.value){
+        if(!titleInput.value || !authorInput.value || !pagesInput.value){
             alert('Please, fill all fields');
             return;
         }
@@ -29,14 +29,22 @@ function main(){
 
     function displayBooks() {
         const bookDiv = document.querySelector('#bookDiv');
-        myLibrary.forEach( book => bookDiv.innerHTML += `${book}<br>`);
+        if(!bookDiv) return;
+        bookDiv.innerHTML = '';
+        myLibrary.forEach( book => bookDiv.innerHTML += `<div>
+                    <h3>${book.title}</h3>
+                    <p>Author: ${book.author}</p>
+                    <p>Pages: ${book.pages}</p>
+                    <p>Status: ${book.hasRead}</p>
+                </div>`
+            );
     }
 
     addBtn.addEventListener('click', e => {
         e.preventDefault();
         const book = new Book(titleInput.value, authorInput.value, pagesInput.value);
         addBookToLibrary(book);
-        console.log(myLibrary);
+        displayBooks();
     });
 
     displayBooks();
