@@ -37,10 +37,12 @@ function main() {
                     <p>Author: ${book.author}</p>
                     <p>Pages: ${book.pages}</p>
                     <p>Status: ${book.hasRead}</p>
+                    <button id="deleteBtn">Delete</button>
+                    <button id="statusBtn">Change status</button>
                 </div>`
         });
-        if(bookDiv.innerHTML !== '')
-            bookDiv.style.display = 'flex';
+
+        if(bookDiv.innerHTML !== '') bookDiv.style.display = 'flex';
     }
 
     addBtn.addEventListener('click', e => {
