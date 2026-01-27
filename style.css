@@ -6,7 +6,6 @@ form div {
 }
 
 #bookDiv{
-    display: flex;
     flex-wrap: wrap;
     width: 90%;
     margin-top: 16px;
