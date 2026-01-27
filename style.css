@@ -4,3 +4,21 @@ form div {
     margin-bottom: 10px;
     width: 30%;
 }
+
+#bookDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 16px;
+    background-color: rebeccapurple;
+    padding: 20px;
+    display: none;
+}
+
+#bookDiv > div{
+    align-self: center;
+    padding: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: aliceblue;
+}
